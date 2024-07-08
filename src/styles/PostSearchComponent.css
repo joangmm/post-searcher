@@ -1,0 +1,27 @@
+.wrapper {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto; 
+  padding: 20px;
+}
+
+.search-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px; 
+}
+
+.search-input {
+  flex: 1; 
+}
+
+.order-by {
+  display: flex;
+  align-items: center;
+}
+
+.order-by span {
+  margin-right: 10px;
+  font-family: "Arial"
+}
