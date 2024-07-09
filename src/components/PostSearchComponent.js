@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import axios from 'axios';
+import fetchPosts from './FetchPostService';
 import SearchForm from './SearchForm';
 import PostTable from './PostTable';
 import '../styles/PostSearchComponent.css';
@@ -23,19 +23,17 @@ const PostSearchComponent = () => {
   }, [orderBy]);
 
   useEffect(() => {
-    const fetchPosts = async () => {
+    const fetchAndSetPosts = async () => {
       try {
-        const dataLink = 'https://jsonplaceholder.typicode.com/posts';
-        const response = await axios.get(dataLink);
-        setAllPosts(response.data);
+        const posts = await fetchPosts();
+        setAllPosts(posts);
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching posts:', error);
         setLoading(false);
       }
     };
 
-    fetchPosts();
+    fetchAndSetPosts();
   }, []);
 
   useEffect(() => {
